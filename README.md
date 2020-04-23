@@ -93,3 +93,15 @@
  
 * Exceptions
     * toThrow
+
+### Jest 命令行工具(2-6)
+
+* Press a to run all tests.
+* Press o to only run tests related to changed files.  // 必须关联git
+* Press f to quit "only failed tests" mode.
+* Press p to filter by a filename regex pattern. 
+* Press t to filter by a test name regex pattern.  // 匹配某个 desc
+* Press q to quit watch mode.
+* Press Enter to trigger a test run.
+
+* `jest --watch` 默认进入的是 o 模式
