@@ -18,7 +18,7 @@
 * 覆盖率
 * Mock丰富
 
-### Jest 配置(2-3)
+### Jest 配置(2-4)
 
 * `npx jest --init` 可以暴露jest 的默认配置 生成一个 `jest.config.js` 的文件。参见目录 lesson3
 * `npx jest --coverage` 测试覆盖率说明
@@ -54,3 +54,42 @@
   * 该插件会检查当前环境是否安装了 `@babel/core`，如果安装就会读取 `.babelrc` 的配置
   * 在运行测试之前，结合babel，先把代码转换为commonjs语法
   * 运行的是转换过的测试代码
+
+### Jest 匹配器 matchers(2-5) 
+
+* 修改监听
+
+    ```json
+    "scripts": {
+       "test": "jest --watchAll",
+     },
+    ```
+* 匹配器
+    > [匹配器](https://jestjs.io/docs/en/using-matchers)
+* Common Matchers
+    * toBe
+    * toEqual
+
+* Truthiness
+    * toBeNull
+    * toBeDefined
+    * toBeUndefined
+    * toBeTruthy
+    * toBeFalsy
+ 
+* Numbers
+    * toBeGreaterThan
+    * toBeGreaterThanOrEqual
+    * toBeLessThan
+    * toBeLessThanOrEqual
+    * toBe / toEqual
+    * toBeCloseTo
+ 
+* Strings
+    * toMatch
+ 
+* Arrays and iterables
+    * toContain
+ 
+* Exceptions
+    * toThrow
