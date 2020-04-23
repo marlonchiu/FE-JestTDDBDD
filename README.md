@@ -191,7 +191,7 @@ test('fetchData 返回结果为 404', async () => {
 
 异步函数的测试方法很多，根据自己的选择就可以，适合就好！
 
-### Jest 钩子函数(2-9)
+### Jest 钩子函数(2-9 2-10)
 
 > [钩子函数](https://jestjs.io/docs/en/api)
 
@@ -200,3 +200,6 @@ test('fetchData 返回结果为 404', async () => {
 * beforeEach：在每一个测试用例执行前调用
 * afterEach：在每一个测试用例执行后调用
 * describe: 分组测试
+
+每个describe都有自己的作用域且互不影响。对于其执行的逻辑一定要放在钩子函数中
+`test.only` 只执行某一个测试用例，其他skipped
