@@ -344,3 +344,14 @@ test('should generateAnotherConfig 函数', () => {
   })
 })
 ```
+
+### mock 深入学习(3-2)
+
+* > [Mock Functions](https://jestjs.io/docs/en/mock-function-api)
+* > [The Jest Object](https://jestjs.io/docs/en/jest-object)
+* 本地去模拟`axios`请求
+
+* 实现方法
+  * 1.直接 使用创建的 `__mock__` 模拟
+  * 2.打开`jest.config.js` Line 6 automock: true,
+* 具体代码 目录 `lesson10`
