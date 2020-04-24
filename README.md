@@ -328,3 +328,19 @@ test('测试 getData', async () => {
   })
 })
 ```
+
+### snapshot 快照测试(3-1)
+
+* toMatchSnapshot 生成快照文件夹`__snapshots__`
+* toMatchInlineSnapshot  行内快照
+  * 对于变化的配置量 `Snapshot({ time2: expect.any(Date)})`
+  * 同样可以接收 `Date | String | Number`
+* 示例：
+
+```js
+test('should generateAnotherConfig 函数', () => {
+  expect(generateAnotherConfig()).toMatchSnapshot({
+    time2: expect.any(Date)
+  })
+})
+```
