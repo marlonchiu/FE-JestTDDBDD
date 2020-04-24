@@ -355,3 +355,44 @@ test('should generateAnotherConfig 函数', () => {
   * 1.直接 使用创建的 `__mock__` 模拟
   * 2.打开`jest.config.js` Line 6 automock: true,
 * 具体代码 目录 `lesson10`
+
+### mock timers(3-3)
+
+> [mock-timers](https://jestjs.io/docs/en/jest-object#mock-timers)
+
+* API
+  * jest.useFakeTimers()
+  * 避免定时器等待时间
+    * jest.runAllTimers()  执行所有的timers
+    * jest.runOnlyPendingTimers()  只执行当前队列中的timers
+    * jest.advanceTimersByTime(msToRun)  时间快进多少
+* 代码
+    ```js
+    import timer from './timer'
+    // jest.useFakeTimers()
+    
+    // test('timer 测试', (done) => {
+    //   timer(() => {
+    //     expect(1).toBe(1)
+    //     done()
+    //   })
+    // })
+    
+    beforeEach(() => {
+      jest.useFakeTimers()
+    })
+    
+    // 2. jest.useFakeTimers()
+    test('timer 测试', () => {
+      const fn = jest.fn()
+      timer(fn)
+      // 避免定时器等待时间
+      // 1. 执行所有的timers
+      // jest.runAllTimers()
+      // 2. 只执行当前队列中的timers
+      // jest.runOnlyPendingTimers()
+      // 3. 时间快进3s
+      jest.advanceTimersByTime(8000)
+      expect(fn).toHaveBeenCalledTimes(2)
+    })
+    ```
