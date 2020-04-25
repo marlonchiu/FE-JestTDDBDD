@@ -400,3 +400,46 @@ test('should generateAnotherConfig 函数', () => {
 ### ES6 中类的测试(3-4)
 
 jest.mock 发现 util 是一个类，会自动把类的构造函数和方法变成 jest.fn()
+
+### Jest  中对 DOM 节点操作的测试(3-5)
+
+* 测试 DOM 要记得把测试环境设为浏览器环境，jest 在底层模拟了一套 dom api
+
+```
+// jest.config.js  Line 135
+{
+  // testEnvironment: "node",
+  testEnvironment: "jest-environment-jsdom",
+}
+```
+
+* 测试代码
+
+```js
+// demo.js
+import $ from 'jquery'
+
+const addDivToBody = () => {
+  $('body').append('<div/>')
+}
+
+export default addDivToBody
+
+// demo.test.js
+import addDivToBody from './demo'
+import $ from 'jquery'
+
+test('测试 addDivToBody', () => {
+  addDivToBody()
+  addDivToBody()
+  let len = $('body').find('div').length
+  console.log(len)
+  expect(len).toBe(2)
+})
+```
+### 总结
+
+* Jest 常用的方法大概就是上述这些，我们需要明确集成测试和单元测试两个不同的概念
+* 单元测试只能保证当个功能，如果我们测试一个项目，无法确保各个功能之间的依赖没有问题
+*　集成测试，可以让我们站在业务流程的角度来进行测试，以确保这个流程是没有问题的
+×　单元测试特别适用于单个函数的测试，因为就只有入参和返回值

@@ -1,0 +1,23 @@
+{
+  "name": "lesson13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "jquery": "^3.5.0",
+    "prettier": "^2.0.5"
+  }
+}
