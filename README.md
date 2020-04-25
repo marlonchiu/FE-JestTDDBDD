@@ -396,3 +396,7 @@ test('should generateAnotherConfig 函数', () => {
       expect(fn).toHaveBeenCalledTimes(2)
     })
     ```
+  
+### ES6 中类的测试(3-4)
+
+jest.mock 发现 util 是一个类，会自动把类的构造函数和方法变成 jest.fn()
